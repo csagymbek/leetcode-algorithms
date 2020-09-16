@@ -3,24 +3,22 @@
 // 1. Open brackets must be closed by the same type of brackets.
 // 2. Open brackets must be closed in the correct order.
 
-function isValid(s){
-    if(s.length === 0) return 0;
-    if(s.length % 2 === 1) return false;
-    var ar = [];
-    for(var i = 0; i < s.length; i++){
-        if(s[i] === "(" || s[i] === "[" || s[i] === "{"){
-            ar.push(s[i]);
-        } else if(s[i] === ")" && ar.length !== 0 && ar[ar.length - 1] === "("){
+function isValid(str){
+     var ar = [];
+     for(var i = 0; i < str.length; i++){
+         if(str[i] === "(" || str[i] === "[" || str[i] === "{"){
+             ar.push(str[i]);
+         } else if(str[i] === ")" && ar.length !== 0 && ar[ar.length - 1] === "("){
+             ar.pop();
+         } else if(str[i] === "]" && ar.length !== 0 && ar[ar.length - 1] === "["){
             ar.pop();
-        } else if(s[i] === "]" && ar.length !== 0 && ar[ar.length - 1] === "["){
-            ar.pop();
-        } else if(s[i] === "}" && ar.length !== 0 && ar[ar.length - 1] === "{"){
+        } else if(str[i] === "}" && ar.length !== 0 && ar[ar.length - 1] === "{"){
             ar.pop();
         } else {
             return false;
         }
-    }
-    return ar.length === 0;
+     } 
+     return !ar.length;
 }
 
 function isValid(s){
@@ -40,15 +38,13 @@ function isValid(s){
     return !ar.length;
 }
 
-function isValid(str){
-    if(str.length % 2 === 1) return false;
-    if(str.length === 0) return true;
+function isValid(s){
     var ar = [];
-    for(var i = 0; i < str.length; i++){
-        if(str[i] === "(") ar.push(")"); 
-        else if(str[i] === "[") ar.push("]");
-        else if(str[i] === "{") ar.push("}");
-        else if(ar.pop() !== str[i]) return false;
+    for(var i = 0; i < s.length; i++){
+        if(s[i] === "(") ar.push(")");
+        else if(s[i] === "[") ar.push("]");
+        else if(s[i] === "{") ar.push("}");
+        else if(ar.pop() !== s[i]) return false;
     }
     return !ar.length;
 }
