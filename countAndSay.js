@@ -14,8 +14,8 @@ function countAndSay(n){
     var str = "1";
     for(var i = 1; i < n; i++){
         var strAr = str.split("");
-        str = "";
         var count = 1;
+        str = "";
         for(var j = 0; j < strAr.length; j++){
             if(strAr[j] !== strAr[j + 1]){
                 str += count + strAr[j];
