@@ -11,20 +11,16 @@
 
 // Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. You can do so recursively, in other words from the previous member read off the digits, counting the number of digits in groups of the same digit. Note: Each term of the sequence of integers will be represented as a string.
 function countAndSay(n){
-    var str = '1';
-    for (var i=1; i < n; i++) {
-        var strArray = str.split('');
-        str ='';
+    var str = "1";
+    for(var i = 1; i < n; i++){
+        var strAr = str.split("");
+        str = "";
         var count = 1;
-        // Loop through current nth level line
-        for (var j=0; j < strArray.length; j++) {
-            // Next digit is different
-            if (strArray[j] !== strArray[j+1]) {
-                // Go to next non-matching digit
-                str += count + strArray[j];
+        for(var j = 0; j < strAr.length; j++){
+            if(strAr[j] !== strAr[j + 1]){
+                str += count + strAr[j];
                 count = 1;
-            }
-            else {
+            } else{
                 count++;
             }
         }
