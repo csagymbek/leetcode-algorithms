@@ -21,7 +21,7 @@ function countAndSay(n){
                 str += count + strAr[j];
                 count = 1;
             } else{
-                count++;
+                count ++; 
             }
         }
     }
